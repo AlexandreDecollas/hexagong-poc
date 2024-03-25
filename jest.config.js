@@ -1,5 +1,1 @@
-const config = {
-    // verbose: true,
-};
-
-module.exports = config;
+// import "jest-preset-angular/setup-jest";
