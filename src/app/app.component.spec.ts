@@ -3,7 +3,7 @@ import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { Table, TableModule } from "primeng/table";
 import { DriveModule } from "./components/drive/drive.module";
-import { AccountBookModule } from "./contexts/book-a-taxi/adapters/account-book/account-book.module";
+import { AccountBookModule } from "./contexts/taxi/adapters/account-book/account-book.module";
 import { MockComponents } from "ng-mocks";
 
 describe("AppComponent", () => {

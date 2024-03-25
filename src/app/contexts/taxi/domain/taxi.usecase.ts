@@ -1,6 +1,6 @@
 import { TaxiCompanyRegistry } from "./ports/taxi-company.registry";
 
-export class BookATaxiUsecase {
+export class TaxiUsecase {
   constructor(private readonly taxiCompanyRegistry: TaxiCompanyRegistry) {}
 
   public async bookATaxi(clientId: string): Promise<string> {

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import Client from "../../contexts/book-a-taxi/domain/model/client/client";
-import Taxi from "../../contexts/book-a-taxi/domain/model/taxi/taxi";
+import Client from "../../contexts/taxi/domain/model/client/client";
+import Taxi from "../../contexts/taxi/domain/model/taxi/taxi";
 
 @Component({
   selector: "app-drive",

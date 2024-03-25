@@ -1,12 +1,12 @@
-import { BookATaxiUsecase } from "./book-a-taxi.usecase";
+import { TaxiUsecase } from "./taxi.usecase";
 import { InMemoryTaxiCompanyRegistry } from "../adapters/in-memory-taxi-company.registry";
 
-describe(`Book a taxi usecase`, () => {
+describe(`Taxi usecase`, () => {
   let taxiCompanyRegistry = new InMemoryTaxiCompanyRegistry();
-  let usecase: BookATaxiUsecase;
+  let usecase: TaxiUsecase;
 
   beforeEach(() => {
-    usecase = new BookATaxiUsecase(taxiCompanyRegistry);
+    usecase = new TaxiUsecase(taxiCompanyRegistry);
   });
 
   it(`should book a taxi`, async () => {
