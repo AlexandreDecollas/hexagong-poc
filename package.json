@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4222",
+    "start": "ng serve",
     "test": "ng test"
   },
   "private": true,
