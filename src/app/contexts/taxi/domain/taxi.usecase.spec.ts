@@ -35,4 +35,14 @@ describe(`Taxi usecase`, () => {
 
     expect(taxiCompanyRegistry.clientsInATaxi.includes(clientId)).toEqual(true);
   });
+
+  it(`should drive the client to destination`, async () => {
+    taxiCompanyRegistry.clientsInATaxi.push(clientId);
+
+    await usecase.driveToDestination(clientId);
+
+    expect(taxiCompanyRegistry.clientsInATaxi.includes(clientId)).toEqual(
+      false,
+    );
+  });
 });

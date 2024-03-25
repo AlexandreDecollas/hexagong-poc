@@ -10,4 +10,8 @@ export class TaxiUsecase {
   public async enterATaxi(clientId: string) {
     return this.taxiCompanyRegistry.enterATaxi(clientId);
   }
+
+  public async driveToDestination(clientId: string): Promise<void> {
+    await this.taxiCompanyRegistry.driveClientToDestination(clientId);
+  }
 }
