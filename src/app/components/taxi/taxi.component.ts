@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import Client from "../../contexts/taxi/domain/model/client/client";
-import Taxi from "../../contexts/taxi/domain/model/taxi/taxi";
 
 @Component({
   selector: "app-taxi",
@@ -8,22 +6,17 @@ import Taxi from "../../contexts/taxi/domain/model/taxi/taxi";
   styleUrls: ["./taxi.component.css"],
 })
 export class TaxiComponent {
-  @Input() public client!: Client;
-  @Input() public taxi!: Taxi;
-  @Output() public enteredTaxi: EventEmitter<Client> =
-    new EventEmitter<Client>();
-  @Output() public startedDrive: EventEmitter<Taxi> = new EventEmitter<Taxi>();
+  @Input() public clientId!: string;
+  @Output() public clientEnteredTheTaxi = new EventEmitter<void>();
+  @Output() public startedDriving = new EventEmitter<void>();
 
-  public clientEntered = false;
-  public clientDriveFinished = false;
+  public isTaxiEntered = false;
 
   public enterTaxi(): void {
-    this.clientEntered = true;
-    this.enteredTaxi.next(this.client);
+    this.isTaxiEntered = true;
   }
 
   public startDriving(): void {
-    this.clientDriveFinished = true;
-    this.startedDrive.next(this.taxi);
+    this.startedDriving.next();
   }
 }

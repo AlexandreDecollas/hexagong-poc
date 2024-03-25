@@ -4,7 +4,6 @@
     </div>
     <div class="p-pl-3 p-pt-2">
         <button (click)="enterTaxi()"
-                [disabled]="clientEntered"
                 pButton
                 pRipple
                 type="button"
@@ -14,7 +13,7 @@
     </div>
     <div class="p-pl-3 p-pt-2">
         <button (click)="startDriving()"
-                [disabled]="clientDriveFinished"
+                [disabled]="!isTaxiEntered"
                 pButton
                 pRipple
                 type="button"

@@ -1,5 +1,5 @@
 import { TaxiUsecase } from "./taxi.usecase";
-import { InMemoryTaxiCompanyRegistry } from "../adapters/in-memory-taxi-company.registry";
+import { InMemoryTaxiCompanyRegistry } from "../adapters/secondary/in-memory-taxi-company.registry";
 
 describe(`Taxi usecase`, () => {
   let taxiCompanyRegistry: InMemoryTaxiCompanyRegistry;

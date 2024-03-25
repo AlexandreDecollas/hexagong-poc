@@ -19,9 +19,12 @@
                     </tr>
 
                 </ng-template>
-                <ng-template pTemplate="body" let-client>
+                <ng-template pTemplate="body" let-clientId>
                     <tr>
-                        <app-drive [client]="client"></app-drive>
+                        <app-drive  [clientId]="clientId"
+                                    (bookATaxi)="bookATaxi(clientId)"
+                                    (startDriving)="startDriving(clientId)"
+                        ></app-drive>
                     </tr>
                 </ng-template>
             </p-table>

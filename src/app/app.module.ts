@@ -9,10 +9,11 @@ import { SharedModule } from "primeng/api";
 import { InputTextModule } from "primeng/inputtext";
 import { FormsModule } from "@angular/forms";
 import { ClientModule } from "./components/client/client.module";
-import { AccountBookModule } from "./contexts/taxi/adapters/account-book/account-book.module";
+import { AccountBookModule } from "./contexts/taxi/adapters/secondary/account-book/account-book.module";
 import { TaxiModule } from "./components/taxi/taxi.module";
 import { DriveModule } from "./components/drive/drive.module";
 import { RippleModule } from "primeng/ripple";
+import { TaxiContextModule } from "./contexts/taxi/taxi-context.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,8 +32,9 @@ import { RippleModule } from "primeng/ripple";
     TaxiModule,
     DriveModule,
     RippleModule,
+
+    TaxiContextModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

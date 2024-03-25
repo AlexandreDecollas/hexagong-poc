@@ -1,3 +1,5 @@
+export const TAXI_COMPANY_REGISTRY = Symbol("TAXI_COMPANY_REGISTRY");
+
 export interface TaxiCompanyRegistry {
   bookATaxi(clientId: string): Promise<string>;
 

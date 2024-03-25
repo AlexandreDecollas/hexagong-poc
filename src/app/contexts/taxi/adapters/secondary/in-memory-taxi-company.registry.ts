@@ -1,9 +1,11 @@
-import { TaxiCompanyRegistry } from "../domain/ports/taxi-company.registry";
+import { TaxiCompanyRegistry } from "../../domain/ports/taxi-company.registry";
 import { v4 as uuidv4 } from "uuid";
+import { Injectable } from "@angular/core";
 
 type ClientId = string;
 type ReservationRef = string;
 
+@Injectable({ providedIn: "root" })
 export class InMemoryTaxiCompanyRegistry implements TaxiCompanyRegistry {
   public bookRegistry = new Map<ClientId, ReservationRef>();
   public clientsInATaxi: string[] = [];

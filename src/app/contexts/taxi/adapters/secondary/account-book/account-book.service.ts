@@ -1,7 +1,7 @@
 import { Injectable, InjectionToken } from "@angular/core";
-import AccountBook from "../../domain/ports/account-book";
-import Taxi from "../../domain/model/taxi/taxi";
-import Client from "../../domain/model/client/client";
+import AccountBook from "../../../domain/ports/account-book";
+import Taxi from "../../../domain/model/taxi/taxi";
+import Client from "../../../domain/model/client/client";
 
 export let ACCOUNT_BOOK = new InjectionToken<AccountBook>("AccountBook");
 

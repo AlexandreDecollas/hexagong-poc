@@ -1,27 +1,26 @@
-import { Component, Inject, OnInit } from "@angular/core";
-import Client from "./contexts/taxi/domain/model/client/client";
-import TaxiCallCenter from "./contexts/taxi/domain/model/taxi-call-center/taxi-call-center";
-import { ACCOUNT_BOOK } from "./contexts/taxi/adapters/account-book/account-book.service";
-import AccountBook from "./contexts/taxi/domain/ports/account-book";
+import { Component } from "@angular/core";
+import { TaxiUsecaseProvider } from "./contexts/taxi/adapters/primary/taxi-usecase.provider";
+import { v4 as uuidv4 } from "uuid";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
 })
-export class AppComponent implements OnInit {
-  public clients: Array<Client> = [];
-  private _taxiCallCenter!: TaxiCallCenter;
+export class AppComponent {
+  public clients: string[] = [];
 
-  constructor(
-    @Inject(ACCOUNT_BOOK) private readonly _accountBook: AccountBook,
-  ) {}
+  constructor(private readonly taxiUsecaseProvider: TaxiUsecaseProvider) {}
 
-  public ngOnInit(): void {
-    this._taxiCallCenter = new TaxiCallCenter(this._accountBook);
+  public async addNewClient(): Promise<void> {
+    this.clients.push(uuidv4());
   }
 
-  public addNewClient(): void {
-    this.clients.push(new Client(this._taxiCallCenter));
+  public async bookATaxi(clientId: string): Promise<void> {
+    await this.taxiUsecaseProvider.usecase.bookATaxi(clientId);
+  }
+
+  public async startDriving(clientId: string): Promise<void> {
+    await this.taxiUsecaseProvider.usecase.driveToDestination(clientId);
   }
 }

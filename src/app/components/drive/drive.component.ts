@@ -8,22 +8,18 @@ import Taxi from "../../contexts/taxi/domain/model/taxi/taxi";
   styleUrls: ["./drive.component.css"],
 })
 export class DriveComponent {
-  @Input() public client!: Client;
-  @Output() public reservedATaxi: EventEmitter<void> = new EventEmitter<void>();
+  @Input() public clientId!: string;
+  @Output() public bookATaxi: EventEmitter<void> = new EventEmitter<void>();
+  @Output() public startDriving: EventEmitter<void> = new EventEmitter<void>();
 
-  public taxiReserved = false;
-  public taxi!: Taxi;
+  public taxiBooked = false;
 
   public reserveTaxi(): void {
-    this.taxi = this.client.reserveTaxi();
-    this.taxiReserved = true;
+    this.bookATaxi.next();
+    this.taxiBooked = true;
   }
 
-  public enteredTaxi(client: Client) {
-    client.enterReservedTaxi();
-  }
-
-  public startedDrive(taxi: Taxi) {
-    taxi.driveClientToDestination();
+  public startedDrive(): void {
+    this.startDriving.next();
   }
 }
