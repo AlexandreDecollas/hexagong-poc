@@ -1,30 +1,29 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import Client from '../../domain/model/client/client';
-import Taxi from '../../domain/model/taxi/taxi';
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import Client from "../../contexts/book-a-taxi/domain/model/client/client";
+import Taxi from "../../contexts/book-a-taxi/domain/model/taxi/taxi";
 
 @Component({
-    selector: 'app-drive',
-    templateUrl: './drive.component.html',
-    styleUrls: ['./drive.component.css']
+  selector: "app-drive",
+  templateUrl: "./drive.component.html",
+  styleUrls: ["./drive.component.css"],
 })
 export class DriveComponent {
+  @Input() public client!: Client;
+  @Output() public reservedATaxi: EventEmitter<void> = new EventEmitter<void>();
 
-    @Input() public client!: Client;
-    @Output() public reservedATaxi: EventEmitter<void> = new EventEmitter<void>();
+  public taxiReserved = false;
+  public taxi!: Taxi;
 
-    public taxiReserved = false;
-    public taxi!: Taxi;
+  public reserveTaxi(): void {
+    this.taxi = this.client.reserveTaxi();
+    this.taxiReserved = true;
+  }
 
-    public reserveTaxi(): void {
-        this.taxi = this.client.reserveTaxi();
-        this.taxiReserved = true;
-    }
+  public enteredTaxi(client: Client) {
+    client.enterReservedTaxi();
+  }
 
-    public enteredTaxi(client: Client) {
-        client.enterReservedTaxi();
-    }
-
-    public startedDrive(taxi: Taxi) {
-        taxi.driveClientToDestination();
-    }
+  public startedDrive(taxi: Taxi) {
+    taxi.driveClientToDestination();
+  }
 }

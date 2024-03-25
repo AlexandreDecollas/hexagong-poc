@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from "@angular/core";
-import Client from "./domain/model/client/client";
-import TaxiCallCenter from "./domain/model/taxi-call-center/taxi-call-center";
-import { ACCOUNT_BOOK } from "./adapters/account-book/account-book.service";
-import AccountBook from "./domain/ports/account-book";
+import Client from "./contexts/book-a-taxi/domain/model/client/client";
+import TaxiCallCenter from "./contexts/book-a-taxi/domain/model/taxi-call-center/taxi-call-center";
+import { ACCOUNT_BOOK } from "./contexts/book-a-taxi/adapters/account-book/account-book.service";
+import AccountBook from "./contexts/book-a-taxi/domain/ports/account-book";
 
 @Component({
   selector: "app-root",
