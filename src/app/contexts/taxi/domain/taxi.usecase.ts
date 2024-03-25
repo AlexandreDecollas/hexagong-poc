@@ -6,4 +6,8 @@ export class TaxiUsecase {
   public async bookATaxi(clientId: string): Promise<string> {
     return this.taxiCompanyRegistry.bookATaxi(clientId);
   }
+
+  public async enterATaxi(clientId: string) {
+    return this.taxiCompanyRegistry.enterATaxi(clientId);
+  }
 }
