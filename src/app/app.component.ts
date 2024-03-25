@@ -5,27 +5,27 @@ import {ACCOUNT_BOOK} from './adapters/account-book/account-book.service';
 import AccountBook from './domain/ports/account-book';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
 
-    public clients: Array<Client> = [];
-    private _taxiCallCenter!: TaxiCallCenter;
+  public clients: Array<Client> = [];
+  private _taxiCallCenter!: TaxiCallCenter;
 
 
-    constructor(
-        @Inject(ACCOUNT_BOOK) private readonly _accountBook: AccountBook,
-    ) {
-    }
+  constructor(
+    @Inject(ACCOUNT_BOOK) private readonly _accountBook: AccountBook,
+  ) {
+  }
 
 
-    public ngOnInit(): void {
-        this._taxiCallCenter = new TaxiCallCenter(this._accountBook);
-    }
+  public ngOnInit(): void {
+    this._taxiCallCenter = new TaxiCallCenter(this._accountBook);
+  }
 
-    public addNewClient() {
-        this.clients.push(new Client(this._taxiCallCenter));
-    }
+  public addNewClient() {
+    this.clients.push(new Client(this._taxiCallCenter));
+  }
 }

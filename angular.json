@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.scss",
               "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeflex/primeflex.css",
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-hexagonal-architecture-poc:build"
+            "buildTarget": "angular-hexagonal-architecture-poc:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-hexagonal-architecture-poc:build:production"
+              "buildTarget": "angular-hexagonal-architecture-poc:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-hexagonal-architecture-poc:build"
+            "buildTarget": "angular-hexagonal-architecture-poc:build"
           }
         },
         "test": {
@@ -92,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "testMatch": [
               "**/__tests__/**/*.[t]s?(x)",
@@ -103,6 +103,5 @@
         }
       }
     }
-  },
-  "defaultProject": "angular-hexagonal-architecture-poc"
+  }
 }
